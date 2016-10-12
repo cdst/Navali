@@ -1,0 +1,771 @@
+﻿<UserControl x:Class="Navali.NavaliSettingsGui"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" mc:Ignorable="d" 
+             xmlns:misc="clr-namespace:Navali"
+             xmlns:maControls="http://metro.mahapps.com/winfx/xaml/controls"
+             xmlns:ns="clr-namespace:Navali"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             Width="Auto">
+
+    <Grid x:Name="Root" Margin="5,5,5,5" DataContext="{x:Static ns:NavaliSettings.Instance}">
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <TabControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,5,0">
+                <TabItem Header="Information">
+                    <Grid Margin="5,5,5,5">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Row="0" Grid.Column="0" Content="On the following tabs, check which Prophecies you want to seal." Margin="3,5,3,1" />
+                        <Label Grid.Row="1" Grid.Column="0" Content="Minimum number of coins to have before interacting with Navali" />
+                        <TextBox Grid.Row="1" Grid.Column="1" Margin="3" Text="{Binding Path=NumCoinsMin, Mode=TwoWay}" />
+                </Grid>
+                </TabItem>
+                <TabItem Header="Masters">
+                    <Grid Margin="5,5,5,5" DataContext="{x:Static ns:NavaliSettings.Instance}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Grid.Row="0" Grid.Column="0" Content="A Gracious Master" Margin="3,5,3,1" ToolTipService.ToolTip="A Gracious Master" />
+                        <CheckBox Name="m1" Grid.Row="0" Grid.Column="1" Margin="3" IsChecked="{Binding Path=m1, Mode=TwoWay}" />
+
+                        <Label Grid.Row="1" Grid.Column="0" Content="A Master Seeks Help" Margin="3,5,3,1" ToolTipService.ToolTip="A Master Seeks Help" />
+                        <CheckBox Name="m2" Grid.Row="1" Grid.Column="1" Margin="3" IsChecked="{Binding Path=m2, Mode=TwoWay}" />
+
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Crafting">
+                    <Grid Margin="5,5,5,5" DataContext="{x:Static ns:NavaliSettings.Instance}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Row="8" Grid.Column="0" Content="The Sharpened Blade" Margin="3,5,3,1" ToolTipService.ToolTip="The Sharpened Blade" />
+                        <Label Grid.Row="6" Grid.Column="0" Content="The Hardened Armour" Margin="3,5,3,1" ToolTipService.ToolTip="The Hardened Armour" />
+                        <Label Grid.Row="5" Grid.Column="0" Content="The Beautiful Guide" Margin="3,5,3,1" ToolTipService.ToolTip="The Beautiful Guide" />
+                        <Label Grid.Row="1" Grid.Column="0" Content="Erasmus' Gift" Margin="3,5,3,1" ToolTipService.ToolTip="Erasmus' Gift" />
+                        <Label Grid.Row="0" Grid.Column="0" Content="A Valuable Combination" Margin="3,5,3,1" ToolTipService.ToolTip="A Valuable Combination" />
+                        <Label Grid.Row="7" Grid.Column="0" Content="The Jeweller's Touch" Margin="3,5,3,1" ToolTipService.ToolTip="The Jeweller's Touch" />
+                        <Label Grid.Row="2" Grid.Column="0" Content="Fated Connections" Margin="3,5,3,1" ToolTipService.ToolTip="Fated Connections" />
+                        <Label Grid.Row="10" Grid.Column="0" Content="Trash to Treasure" Margin="3,5,3,1" ToolTipService.ToolTip="Trash to Treasure" />
+                        <Label Grid.Row="3" Grid.Column="0" Content="Golden Touch" Margin="3,5,3,1" ToolTipService.ToolTip="Golden Touch" />
+                        <Label Grid.Row="11" Grid.Column="0" Content="Vital Transformation" Margin="3,5,3,1" ToolTipService.ToolTip="Vital Transformation" />
+                        <Label Grid.Row="4" Grid.Column="0" Content="Resistant to Change" Margin="3,5,3,1" ToolTipService.ToolTip="Resistant to Change" />
+                        <Label Grid.Row="9" Grid.Column="0" Content="Touched by the Wind" Margin="3,5,3,1" ToolTipService.ToolTip="Touched by the Wind" />
+
+                        <CheckBox Name="c1" Grid.Row="8" Grid.Column="1" Margin="3" IsChecked="{Binding Path=c1, Mode=TwoWay}" />
+                        <CheckBox Name="c2" Grid.Row="6" Grid.Column="1" Margin="3" IsChecked="{Binding Path=c2, Mode=TwoWay}" />
+                        <CheckBox Name="c3" Grid.Row="5" Grid.Column="1" Margin="3" IsChecked="{Binding Path=c3, Mode=TwoWay}" />
+                        <CheckBox Name="c4" Grid.Row="1" Grid.Column="1" Margin="3" IsChecked="{Binding Path=c4, Mode=TwoWay}" />
+                        <CheckBox Name="c5" Grid.Row="0" Grid.Column="1" Margin="3" IsChecked="{Binding Path=c5, Mode=TwoWay}" />
+                        <CheckBox Name="c6" Grid.Row="7" Grid.Column="1" Margin="3" IsChecked="{Binding Path=c6, Mode=TwoWay}" />
+                        <CheckBox Name="c7" Grid.Row="2" Grid.Column="1" Margin="3" IsChecked="{Binding Path=c7, Mode=TwoWay}" />
+                        <CheckBox Name="c8" Grid.Row="10" Grid.Column="1" Margin="3" IsChecked="{Binding Path=c8, Mode=TwoWay}" />
+                        <CheckBox Name="c9" Grid.Row="3" Grid.Column="1" Margin="3" IsChecked="{Binding Path=c9, Mode=TwoWay}" />
+                        <CheckBox Name="c10" Grid.Row="11" Grid.Column="1" Margin="3" IsChecked="{Binding Path=c10, Mode=TwoWay}" />
+                        <CheckBox Name="c11" Grid.Row="4" Grid.Column="1" Margin="3" IsChecked="{Binding Path=c11, Mode=TwoWay}" />
+                        <CheckBox Name="c12" Grid.Row="9" Grid.Column="1" Margin="3" IsChecked="{Binding Path=c12, Mode=TwoWay}" />
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Fated Uniques">
+                    <Grid Margin="5,5,5,5" DataContext="{x:Static ns:NavaliSettings.Instance}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Row="19" Grid.Column="0" Content="The King's Path" Margin="3,5,3,1" ToolTipService.ToolTip="The King's Path" />
+                        <Label Grid.Row="17" Grid.Column="0" Content="The Karui Rebellion" Margin="3,5,3,1" ToolTipService.ToolTip="The Karui Rebellion" />
+                        <Label Grid.Row="18" Grid.Column="0" Content="The King and the Brambles" Margin="3,5,3,1" ToolTipService.ToolTip="The King and the Brambles" />
+                        <Label Grid.Row="16" Grid.Column="0" Content="The Flow of Energy" Margin="3,5,3,1" ToolTipService.ToolTip="The Flow of Energy" />
+                        <Label Grid.Row="15" Grid.Column="0" Content="The Bowstring's Music" Margin="3,5,3,1" ToolTipService.ToolTip="The Bowstring's Music" />
+                        <Label Grid.Row="5" Grid.Column="0" Content="From The Void" Margin="3,5,3,1" ToolTipService.ToolTip="From The Void" />
+                        <Label Grid.Row="6" Grid.Column="0" Content="Heavy Blows" Margin="3,5,3,1" ToolTipService.ToolTip="Heavy Blows" />
+                        <Label Grid.Row="3" Grid.Column="0" Content="Fire and Brimstone" Margin="3,5,3,1" ToolTipService.ToolTip="Fire and Brimstone" />
+                        <Label Grid.Row="0" Grid.Column="0" Content="A Forest of False Idols" Margin="3,5,3,1" ToolTipService.ToolTip="A Forest of False Idols" />
+                        <Label Grid.Row="4" Grid.Column="0" Content="Fire and Ice" Margin="3,5,3,1" ToolTipService.ToolTip="Fire and Ice" />
+                        <Label Grid.Row="9" Grid.Column="0" Content="Pleasure and Pain" Margin="3,5,3,1" ToolTipService.ToolTip="Pleasure and Pain" />
+                        <Label Grid.Row="14" Grid.Column="0" Content="The Bloody Flowers Redux" Margin="3,5,3,1" ToolTipService.ToolTip="The Bloody Flowers Redux" />
+                        <Label Grid.Row="2" Grid.Column="0" Content="Dying Cry" Margin="3,5,3,1" ToolTipService.ToolTip="Dying Cry" />
+                        <Label Grid.Row="7" Grid.Column="0" Content="Mouth of Horrors" Margin="3,5,3,1" ToolTipService.ToolTip="Mouth of Horrors" />
+                        <Label Grid.Row="8" Grid.Column="0" Content="Nature's Resilience" Margin="3,5,3,1" ToolTipService.ToolTip="Nature's Resilience" />
+                        <Label Grid.Row="23" Grid.Column="0" Content="The Snuffed Flame" Margin="3,5,3,1" ToolTipService.ToolTip="The Snuffed Flame" />
+                        <Label Grid.Row="12" Grid.Column="0" Content="The Apex Predator" Margin="3,5,3,1" ToolTipService.ToolTip="The Apex Predator" />
+                        <Label Grid.Row="11" Grid.Column="0" Content="Severed Limbs" Margin="3,5,3,1" ToolTipService.ToolTip="Severed Limbs" />
+                        <Label Grid.Row="1" Grid.Column="0" Content="Ancient Doom" Margin="3,5,3,1" ToolTipService.ToolTip="Ancient Doom" />
+                        <Label Grid.Row="22" Grid.Column="0" Content="The Silverwood" Margin="3,5,3,1" ToolTipService.ToolTip="The Silverwood" />
+                        <Label Grid.Row="21" Grid.Column="0" Content="The Servant's Heart" Margin="3,5,3,1" ToolTipService.ToolTip="The Servant's Heart" />
+                        <Label Grid.Row="24" Grid.Column="0" Content="Winter's Mournful Melodies" Margin="3,5,3,1" ToolTipService.ToolTip="Winter's Mournful Melodies" />
+                        <Label Grid.Row="10" Grid.Column="0" Content="Power Magnified" Margin="3,5,3,1" ToolTipService.ToolTip="Power Magnified" />
+                        <Label Grid.Row="13" Grid.Column="0" Content="The Beginning and the End" Margin="3,5,3,1" ToolTipService.ToolTip="The Beginning and the End" />
+                        <Label Grid.Row="20" Grid.Column="0" Content="The Misunderstood Queen" Margin="3,5,3,1" ToolTipService.ToolTip="The Misunderstood Queen" />
+
+                        <CheckBox Name="f1" Grid.Row="19" Grid.Column="1" Margin="3" IsChecked="{Binding Path=f1, Mode=TwoWay}" />
+                        <CheckBox Name="f2" Grid.Row="17" Grid.Column="1" Margin="3" IsChecked="{Binding Path=f2, Mode=TwoWay}" />
+                        <CheckBox Name="f3" Grid.Row="18" Grid.Column="1" Margin="3" IsChecked="{Binding Path=f3, Mode=TwoWay}" />
+                        <CheckBox Name="f4" Grid.Row="16" Grid.Column="1" Margin="3" IsChecked="{Binding Path=f4, Mode=TwoWay}" />
+                        <CheckBox Name="f5" Grid.Row="15" Grid.Column="1" Margin="3" IsChecked="{Binding Path=f5, Mode=TwoWay}" />
+                        <CheckBox Name="f6" Grid.Row="5" Grid.Column="1" Margin="3" IsChecked="{Binding Path=f6, Mode=TwoWay}" />
+                        <CheckBox Name="f7" Grid.Row="6" Grid.Column="1" Margin="3" IsChecked="{Binding Path=f7, Mode=TwoWay}" />
+                        <CheckBox Name="f8" Grid.Row="3" Grid.Column="1" Margin="3" IsChecked="{Binding Path=f8, Mode=TwoWay}" />
+                        <CheckBox Name="f9" Grid.Row="0" Grid.Column="1" Margin="3" IsChecked="{Binding Path=f9, Mode=TwoWay}" />
+                        <CheckBox Name="f10" Grid.Row="4" Grid.Column="1" Margin="3" IsChecked="{Binding Path=f10, Mode=TwoWay}" />
+                        <CheckBox Name="f11" Grid.Row="9" Grid.Column="1" Margin="3" IsChecked="{Binding Path=f11, Mode=TwoWay}" />
+                        <CheckBox Name="f12" Grid.Row="14" Grid.Column="1" Margin="3" IsChecked="{Binding Path=f12, Mode=TwoWay}" />
+                        <CheckBox Name="f13" Grid.Row="2" Grid.Column="1" Margin="3" IsChecked="{Binding Path=f13, Mode=TwoWay}" />
+                        <CheckBox Name="f14" Grid.Row="7" Grid.Column="1" Margin="3" IsChecked="{Binding Path=f14, Mode=TwoWay}" />
+                        <CheckBox Name="f15" Grid.Row="8" Grid.Column="1" Margin="3" IsChecked="{Binding Path=f15, Mode=TwoWay}" />
+                        <CheckBox Name="f16" Grid.Row="23" Grid.Column="1" Margin="3" IsChecked="{Binding Path=f16, Mode=TwoWay}" />
+                        <CheckBox Name="f17" Grid.Row="12" Grid.Column="1" Margin="3" IsChecked="{Binding Path=f17, Mode=TwoWay}" />
+                        <CheckBox Name="f18" Grid.Row="11" Grid.Column="1" Margin="3" IsChecked="{Binding Path=f18, Mode=TwoWay}" />
+                        <CheckBox Name="f19" Grid.Row="1" Grid.Column="1" Margin="3" IsChecked="{Binding Path=f19, Mode=TwoWay}" />
+                        <CheckBox Name="f20" Grid.Row="22" Grid.Column="1" Margin="3" IsChecked="{Binding Path=f20, Mode=TwoWay}" />
+                        <CheckBox Name="f21" Grid.Row="21" Grid.Column="1" Margin="3" IsChecked="{Binding Path=f21, Mode=TwoWay}" />
+                        <CheckBox Name="f22" Grid.Row="24" Grid.Column="1" Margin="3" IsChecked="{Binding Path=f22, Mode=TwoWay}" />
+                        <CheckBox Name="f23" Grid.Row="10" Grid.Column="1" Margin="3" IsChecked="{Binding Path=f23, Mode=TwoWay}" />
+                        <CheckBox Name="f24" Grid.Row="13" Grid.Column="1" Margin="3" IsChecked="{Binding Path=f24, Mode=TwoWay}" />
+                        <CheckBox Name="f25" Grid.Row="20" Grid.Column="1" Margin="3" IsChecked="{Binding Path=f25, Mode=TwoWay}" />
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Encounter">
+                    <Grid Margin="5,5,5,5" DataContext="{x:Static ns:NavaliSettings.Instance}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width='Auto' />
+                            <ColumnDefinition Width='Auto' />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Grid.Row="0" Grid.Column="0" Content="The Singular Spirit" Margin="3,5,3,1" ToolTipService.ToolTip="The Singular Spirit" />
+                        <Label Grid.Row="1" Grid.Column="0" Content="Nemesis of Greed" Margin="3,5,3,1" ToolTipService.ToolTip="Nemesis of Greed" />
+                        <Label Grid.Row="2" Grid.Column="0" Content="The Blacksmith" Margin="3,5,3,1" ToolTipService.ToolTip="The Blacksmith" />
+                        <Label Grid.Row="3" Grid.Column="0" Content="The Walking Mountain" Margin="3,5,3,1" ToolTipService.ToolTip="The Walking Mountain" />
+                        <Label Grid.Row="4" Grid.Column="0" Content="The Prison Guard" Margin="3,5,3,1" ToolTipService.ToolTip="The Prison Guard" />
+                        <Label Grid.Row="5" Grid.Column="0" Content="The Sword King's Passion" Margin="3,5,3,1" ToolTipService.ToolTip="The Sword King's Passion" />
+                        <Label Grid.Row="6" Grid.Column="0" Content="The Eagle's Cry" Margin="3,5,3,1" ToolTipService.ToolTip="The Eagle's Cry" />
+                        <Label Grid.Row="7" Grid.Column="0" Content="From Death Springs Life" Margin="3,5,3,1" ToolTipService.ToolTip="From Death Springs Life" />
+                        <Label Grid.Row="8" Grid.Column="0" Content="Storm on the Horizon" Margin="3,5,3,1" ToolTipService.ToolTip="Storm on the Horizon" />
+                        <Label Grid.Row="9" Grid.Column="0" Content="A Firm Foothold" Margin="3,5,3,1" ToolTipService.ToolTip="A Firm Foothold" />
+                        <Label Grid.Row="10" Grid.Column="0" Content="The Ward's Ward" Margin="3,5,3,1" ToolTipService.ToolTip="The Ward's Ward" />
+                        <Label Grid.Row="11" Grid.Column="0" Content="Fear's Wide Reach" Margin="3,5,3,1" ToolTipService.ToolTip="Fear's Wide Reach" />
+                        <Label Grid.Row="12" Grid.Column="0" Content="The Prison Key" Margin="3,5,3,1" ToolTipService.ToolTip="The Prison Key" />
+                        <Label Grid.Row="13" Grid.Column="0" Content="Roth's Legacy" Margin="3,5,3,1" ToolTipService.ToolTip="Roth's Legacy" />
+                        <Label Grid.Row="14" Grid.Column="0" Content="The Soulless Beast" Margin="3,5,3,1" ToolTipService.ToolTip="The Soulless Beast" />
+                        <Label Grid.Row="15" Grid.Column="0" Content="The Sinner's Stone" Margin="3,5,3,1" ToolTipService.ToolTip="The Sinner's Stone" />
+                        <Label Grid.Row="16" Grid.Column="0" Content="Baptism by Death" Margin="3,5,3,1" ToolTipService.ToolTip="Baptism by Death" />
+                        <Label Grid.Row="17" Grid.Column="0" Content="The Lady in Black" Margin="3,5,3,1" ToolTipService.ToolTip="The Lady in Black" />
+                        <Label Grid.Row="18" Grid.Column="0" Content="Against the Tide" Margin="3,5,3,1" ToolTipService.ToolTip="Against the Tide" />
+                        <Label Grid.Row="19" Grid.Column="0" Content="The Brutal Enforcer" Margin="3,5,3,1" ToolTipService.ToolTip="The Brutal Enforcer" />
+                        <Label Grid.Row="20" Grid.Column="0" Content="Graceful Flames" Margin="3,5,3,1" ToolTipService.ToolTip="Graceful Flames" />
+                        <Label Grid.Row="21" Grid.Column="0" Content="Storm on the Shore" Margin="3,5,3,1" ToolTipService.ToolTip="Storm on the Shore" />
+                        <Label Grid.Row="22" Grid.Column="0" Content="The Petrified" Margin="3,5,3,1" ToolTipService.ToolTip="The Petrified" />
+                        <Label Grid.Row="23" Grid.Column="0" Content="The Vanguard" Margin="3,5,3,1" ToolTipService.ToolTip="The Vanguard" />
+                        <Label Grid.Row="24" Grid.Column="0" Content="Cleanser of Sins" Margin="3,5,3,1" ToolTipService.ToolTip="Cleanser of Sins" />
+                        <Label Grid.Row="25" Grid.Column="0" Content="Strong as a Bull" Margin="3,5,3,1" ToolTipService.ToolTip="Strong as a Bull" />
+                        <Label Grid.Row="26" Grid.Column="0" Content="The Lost Undying" Margin="3,5,3,1" ToolTipService.ToolTip="The Lost Undying" />
+                        <Label Grid.Row="27" Grid.Column="0" Content="A Whispered Prayer" Margin="3,5,3,1" ToolTipService.ToolTip="A Whispered Prayer" />
+                        <Label Grid.Row="28" Grid.Column="0" Content="The Last Watch" Margin="3,5,3,1" ToolTipService.ToolTip="The Last Watch" />
+                        <Label Grid.Row="29" Grid.Column="0" Content="A Prodigious Hand" Margin="3,5,3,1" ToolTipService.ToolTip="A Prodigious Hand" />
+                        <Label Grid.Row="30" Grid.Column="0" Content="The Watcher's Watcher" Margin="3,5,3,1" ToolTipService.ToolTip="The Watcher's Watcher" />
+                        <Label Grid.Row="31" Grid.Column="0" Content="Blood of the Betrayed" Margin="3,5,3,1" ToolTipService.ToolTip="Blood of the Betrayed" />
+                        <Label Grid.Row="32" Grid.Column="0" Content="Heart of the Fire" Margin="3,5,3,1" ToolTipService.ToolTip="Heart of the Fire" />
+                        <Label Grid.Row="33" Grid.Column="0" Content="Notched Flesh" Margin="3,5,3,1" ToolTipService.ToolTip="Notched Flesh" />
+                        <Label Grid.Row="34" Grid.Column="0" Content="Custodians of Silence" Margin="3,5,3,1" ToolTipService.ToolTip="Custodians of Silence" />
+                        <Label Grid.Row="35" Grid.Column="0" Content="Flesh of the Beast" Margin="3,5,3,1" ToolTipService.ToolTip="Flesh of the Beast" />
+                        <Label Grid.Row="36" Grid.Column="0" Content="Fire, Wood and Stone" Margin="3,5,3,1" ToolTipService.ToolTip="Fire, Wood and Stone" />
+                        <Label Grid.Row="37" Grid.Column="0" Content="Abnormal Effulgence" Margin="3,5,3,1" ToolTipService.ToolTip="Abnormal Effulgence" />
+                        <Label Grid.Row="38" Grid.Column="0" Content="Wind and Thunder" Margin="3,5,3,1" ToolTipService.ToolTip="Wind and Thunder" />
+                        <Label Grid.Row="39" Grid.Column="0" Content="Lost in the Pages" Margin="3,5,3,1" ToolTipService.ToolTip="Lost in the Pages" />
+                        <Label Grid.Row="40" Grid.Column="0" Content="Weeping Death" Margin="3,5,3,1" ToolTipService.ToolTip="Weeping Death" />
+                        <Label Grid.Row="41" Grid.Column="0" Content="The Flayed Man" Margin="3,5,3,1" ToolTipService.ToolTip="The Flayed Man" />
+                        <Label Grid.Row="42" Grid.Column="0" Content="The Hollow Pledge" Margin="3,5,3,1" ToolTipService.ToolTip="The Hollow Pledge" />
+                        <Label Grid.Row="43" Grid.Column="0" Content="A Call into the Void" Margin="3,5,3,1" ToolTipService.ToolTip="A Call into the Void" />
+                        <Label Grid.Row="44" Grid.Column="0" Content="Blood in the Eyes" Margin="3,5,3,1" ToolTipService.ToolTip="Blood in the Eyes" />
+                        <Label Grid.Row="45" Grid.Column="0" Content="The Nest" Margin="3,5,3,1" ToolTipService.ToolTip="The Nest" />
+                        <Label Grid.Row="46" Grid.Column="0" Content="The Mysterious Gift" Margin="3,5,3,1" ToolTipService.ToolTip="The Mysterious Gift" />
+                        <Label Grid.Row="47" Grid.Column="0" Content="The Queen's Vaults" Margin="3,5,3,1" ToolTipService.ToolTip="The Queen's Vaults" />
+                        <CheckBox Name="e0" Grid.Row="0" Grid.Column="1" Margin="3" IsChecked="{Binding Path=e0, Mode=TwoWay}" />
+                        <CheckBox Name="e1" Grid.Row="1" Grid.Column="1" Margin="3" IsChecked="{Binding Path=e1, Mode=TwoWay}" />
+                        <CheckBox Name="e2" Grid.Row="2" Grid.Column="1" Margin="3" IsChecked="{Binding Path=e2, Mode=TwoWay}" />
+                        <CheckBox Name="e3" Grid.Row="3" Grid.Column="1" Margin="3" IsChecked="{Binding Path=e3, Mode=TwoWay}" />
+                        <CheckBox Name="e4" Grid.Row="4" Grid.Column="1" Margin="3" IsChecked="{Binding Path=e4, Mode=TwoWay}" />
+                        <CheckBox Name="e5" Grid.Row="5" Grid.Column="1" Margin="3" IsChecked="{Binding Path=e5, Mode=TwoWay}" />
+                        <CheckBox Name="e6" Grid.Row="6" Grid.Column="1" Margin="3" IsChecked="{Binding Path=e6, Mode=TwoWay}" />
+                        <CheckBox Name="e7" Grid.Row="7" Grid.Column="1" Margin="3" IsChecked="{Binding Path=e7, Mode=TwoWay}" />
+                        <CheckBox Name="e8" Grid.Row="8" Grid.Column="1" Margin="3" IsChecked="{Binding Path=e8, Mode=TwoWay}" />
+                        <CheckBox Name="e9" Grid.Row="9" Grid.Column="1" Margin="3" IsChecked="{Binding Path=e9, Mode=TwoWay}" />
+                        <CheckBox Name="e10" Grid.Row="10" Grid.Column="1" Margin="3" IsChecked="{Binding Path=e10, Mode=TwoWay}" />
+                        <CheckBox Name="e11" Grid.Row="11" Grid.Column="1" Margin="3" IsChecked="{Binding Path=e11, Mode=TwoWay}" />
+                        <CheckBox Name="e12" Grid.Row="12" Grid.Column="1" Margin="3" IsChecked="{Binding Path=e12, Mode=TwoWay}" />
+                        <CheckBox Name="e13" Grid.Row="13" Grid.Column="1" Margin="3" IsChecked="{Binding Path=e13, Mode=TwoWay}" />
+                        <CheckBox Name="e14" Grid.Row="14" Grid.Column="1" Margin="3" IsChecked="{Binding Path=e14, Mode=TwoWay}" />
+                        <CheckBox Name="e15" Grid.Row="15" Grid.Column="1" Margin="3" IsChecked="{Binding Path=e15, Mode=TwoWay}" />
+                        <CheckBox Name="e16" Grid.Row="16" Grid.Column="1" Margin="3" IsChecked="{Binding Path=e16, Mode=TwoWay}" />
+                        <CheckBox Name="e17" Grid.Row="17" Grid.Column="1" Margin="3" IsChecked="{Binding Path=e17, Mode=TwoWay}" />
+                        <CheckBox Name="e18" Grid.Row="18" Grid.Column="1" Margin="3" IsChecked="{Binding Path=e18, Mode=TwoWay}" />
+                        <CheckBox Name="e19" Grid.Row="19" Grid.Column="1" Margin="3" IsChecked="{Binding Path=e19, Mode=TwoWay}" />
+                        <CheckBox Name="e20" Grid.Row="20" Grid.Column="1" Margin="3" IsChecked="{Binding Path=e20, Mode=TwoWay}" />
+                        <CheckBox Name="e21" Grid.Row="21" Grid.Column="1" Margin="3" IsChecked="{Binding Path=e21, Mode=TwoWay}" />
+                        <CheckBox Name="e22" Grid.Row="22" Grid.Column="1" Margin="3" IsChecked="{Binding Path=e22, Mode=TwoWay}" />
+                        <CheckBox Name="e23" Grid.Row="23" Grid.Column="1" Margin="3" IsChecked="{Binding Path=e23, Mode=TwoWay}" />
+                        <CheckBox Name="e24" Grid.Row="24" Grid.Column="1" Margin="3" IsChecked="{Binding Path=e24, Mode=TwoWay}" />
+                        <CheckBox Name="e25" Grid.Row="25" Grid.Column="1" Margin="3" IsChecked="{Binding Path=e25, Mode=TwoWay}" />
+                        <CheckBox Name="e26" Grid.Row="26" Grid.Column="1" Margin="3" IsChecked="{Binding Path=e26, Mode=TwoWay}" />
+                        <CheckBox Name="e27" Grid.Row="27" Grid.Column="1" Margin="3" IsChecked="{Binding Path=e27, Mode=TwoWay}" />
+                        <CheckBox Name="e28" Grid.Row="28" Grid.Column="1" Margin="3" IsChecked="{Binding Path=e28, Mode=TwoWay}" />
+                        <CheckBox Name="e29" Grid.Row="29" Grid.Column="1" Margin="3" IsChecked="{Binding Path=e29, Mode=TwoWay}" />
+                        <CheckBox Name="e30" Grid.Row="30" Grid.Column="1" Margin="3" IsChecked="{Binding Path=e30, Mode=TwoWay}" />
+                        <CheckBox Name="e31" Grid.Row="31" Grid.Column="1" Margin="3" IsChecked="{Binding Path=e31, Mode=TwoWay}" />
+                        <CheckBox Name="e32" Grid.Row="32" Grid.Column="1" Margin="3" IsChecked="{Binding Path=e32, Mode=TwoWay}" />
+                        <CheckBox Name="e33" Grid.Row="33" Grid.Column="1" Margin="3" IsChecked="{Binding Path=e33, Mode=TwoWay}" />
+                        <CheckBox Name="e34" Grid.Row="34" Grid.Column="1" Margin="3" IsChecked="{Binding Path=e34, Mode=TwoWay}" />
+                        <CheckBox Name="e35" Grid.Row="35" Grid.Column="1" Margin="3" IsChecked="{Binding Path=e35, Mode=TwoWay}" />
+                        <CheckBox Name="e36" Grid.Row="36" Grid.Column="1" Margin="3" IsChecked="{Binding Path=e36, Mode=TwoWay}" />
+                        <CheckBox Name="e37" Grid.Row="37" Grid.Column="1" Margin="3" IsChecked="{Binding Path=e37, Mode=TwoWay}" />
+                        <CheckBox Name="e38" Grid.Row="38" Grid.Column="1" Margin="3" IsChecked="{Binding Path=e38, Mode=TwoWay}" />
+                        <CheckBox Name="e39" Grid.Row="39" Grid.Column="1" Margin="3" IsChecked="{Binding Path=e39, Mode=TwoWay}" />
+                        <CheckBox Name="e40" Grid.Row="40" Grid.Column="1" Margin="3" IsChecked="{Binding Path=e40, Mode=TwoWay}" />
+                        <CheckBox Name="e41" Grid.Row="41" Grid.Column="1" Margin="3" IsChecked="{Binding Path=e41, Mode=TwoWay}" />
+                        <CheckBox Name="e42" Grid.Row="42" Grid.Column="1" Margin="3" IsChecked="{Binding Path=e42, Mode=TwoWay}" />
+                        <CheckBox Name="e43" Grid.Row="43" Grid.Column="1" Margin="3" IsChecked="{Binding Path=e43, Mode=TwoWay}" />
+                        <CheckBox Name="e44" Grid.Row="44" Grid.Column="1" Margin="3" IsChecked="{Binding Path=e44, Mode=TwoWay}" />
+                        <CheckBox Name="e45" Grid.Row="45" Grid.Column="1" Margin="3" IsChecked="{Binding Path=e45, Mode=TwoWay}" />
+                        <CheckBox Name="e46" Grid.Row="46" Grid.Column="1" Margin="3" IsChecked="{Binding Path=e46, Mode=TwoWay}" />
+                        <CheckBox Name="e47" Grid.Row="47" Grid.Column="1" Margin="3" IsChecked="{Binding Path=e46, Mode=TwoWay}" />
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Currency">
+                    <Grid Margin="5,5,5,5" DataContext="{x:Static ns:NavaliSettings.Instance}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width='Auto' />
+                            <ColumnDefinition Width='Auto' />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Grid.Row="0" Grid.Column="0" Content="Overflowing Riches" Margin="3,5,3,1" ToolTipService.ToolTip="Overflowing Riches" />
+                        <Label Grid.Row="1" Grid.Column="0" Content="Erased from Memory" Margin="3,5,3,1" ToolTipService.ToolTip="Erased from Memory" />
+                        <Label Grid.Row="2" Grid.Column="0" Content="The Alchemist" Margin="3,5,3,1" ToolTipService.ToolTip="The Alchemist" />
+                        <Label Grid.Row="3" Grid.Column="0" Content="A Regal Death" Margin="3,5,3,1" ToolTipService.ToolTip="A Regal Death" />
+                        <Label Grid.Row="4" Grid.Column="0" Content="The Corrupt" Margin="3,5,3,1" ToolTipService.ToolTip="The Corrupt" />
+                        <Label Grid.Row="5" Grid.Column="0" Content="The God of Misfortune" Margin="3,5,3,1" ToolTipService.ToolTip="The God of Misfortune" />
+                        <CheckBox Name="s0" Grid.Row="0" Grid.Column="1" Margin="3" IsChecked="{Binding Path=s0, Mode=TwoWay}" />
+                        <CheckBox Name="s1" Grid.Row="1" Grid.Column="1" Margin="3" IsChecked="{Binding Path=s1, Mode=TwoWay}" />
+                        <CheckBox Name="s2" Grid.Row="2" Grid.Column="1" Margin="3" IsChecked="{Binding Path=s2, Mode=TwoWay}" />
+                        <CheckBox Name="s3" Grid.Row="3" Grid.Column="1" Margin="3" IsChecked="{Binding Path=s3, Mode=TwoWay}" />
+                        <CheckBox Name="s4" Grid.Row="4" Grid.Column="1" Margin="3" IsChecked="{Binding Path=s4, Mode=TwoWay}" />
+                        <CheckBox Name="s5" Grid.Row="5" Grid.Column="1" Margin="3" IsChecked="{Binding Path=s5, Mode=TwoWay}" />
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Misc">
+                    <Grid Margin="5,5,5,5" DataContext="{x:Static ns:NavaliSettings.Instance}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width='Auto' />
+                            <ColumnDefinition Width='Auto' />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Grid.Row="0" Grid.Column="0" Content="Deadly Twins" Margin="3,5,3,1" ToolTipService.ToolTip="Deadly Twins" />
+                        <Label Grid.Row="1" Grid.Column="0" Content="Living Fires" Margin="3,5,3,1" ToolTipService.ToolTip="Living Fires" />
+                        <Label Grid.Row="2" Grid.Column="0" Content="Fallow At Last" Margin="3,5,3,1" ToolTipService.ToolTip="Fallow At Last" />
+                        <Label Grid.Row="3" Grid.Column="0" Content="Path of Betrayal" Margin="3,5,3,1" ToolTipService.ToolTip="Path of Betrayal" />
+                        <Label Grid.Row="4" Grid.Column="0" Content="The Forgotten Soldiers" Margin="3,5,3,1" ToolTipService.ToolTip="The Forgotten Soldiers" />
+                        <Label Grid.Row="5" Grid.Column="0" Content="Pools of Wealth" Margin="3,5,3,1" ToolTipService.ToolTip="Pools of Wealth" />
+                        <Label Grid.Row="6" Grid.Column="0" Content="The Child of Lunaris" Margin="3,5,3,1" ToolTipService.ToolTip="The Child of Lunaris" />
+                        <Label Grid.Row="7" Grid.Column="0" Content="The Forgotten Garrison" Margin="3,5,3,1" ToolTipService.ToolTip="The Forgotten Garrison" />
+                        <Label Grid.Row="8" Grid.Column="0" Content="The Stockkeeper" Margin="3,5,3,1" ToolTipService.ToolTip="The Stockkeeper" />
+                        <Label Grid.Row="9" Grid.Column="0" Content="Unnatural Energy" Margin="3,5,3,1" ToolTipService.ToolTip="Unnatural Energy" />
+                        <Label Grid.Row="10" Grid.Column="0" Content="Holding the Bridge" Margin="3,5,3,1" ToolTipService.ToolTip="Holding the Bridge" />
+                        <Label Grid.Row="11" Grid.Column="0" Content="In the Grasp of Corruption" Margin="3,5,3,1" ToolTipService.ToolTip="In the Grasp of Corruption" />
+                        <Label Grid.Row="12" Grid.Column="0" Content="Defiled in the Sceptre" Margin="3,5,3,1" ToolTipService.ToolTip="Defiled in the Sceptre" />
+                        <Label Grid.Row="13" Grid.Column="0" Content="The Twins" Margin="3,5,3,1" ToolTipService.ToolTip="The Twins" />
+                        <Label Grid.Row="14" Grid.Column="0" Content="Possessed Foe" Margin="3,5,3,1" ToolTipService.ToolTip="Possessed Foe" />
+                        <Label Grid.Row="15" Grid.Column="0" Content="Vaal Invasion" Margin="3,5,3,1" ToolTipService.ToolTip="Vaal Invasion" />
+                        <Label Grid.Row="16" Grid.Column="0" Content="Monstrous Treasure" Margin="3,5,3,1" ToolTipService.ToolTip="Monstrous Treasure" />
+                        <Label Grid.Row="17" Grid.Column="0" Content="Visions of the Drowned" Margin="3,5,3,1" ToolTipService.ToolTip="Visions of the Drowned" />
+                        <Label Grid.Row="18" Grid.Column="0" Content="Soil, Worms and Blood" Margin="3,5,3,1" ToolTipService.ToolTip="Soil, Worms and Blood" />
+                        <Label Grid.Row="19" Grid.Column="0" Content="The Hungering Swarm" Margin="3,5,3,1" ToolTipService.ToolTip="The Hungering Swarm" />
+                        <Label Grid.Row="20" Grid.Column="0" Content="The Cursed Choir" Margin="3,5,3,1" ToolTipService.ToolTip="The Cursed Choir" />
+                        <Label Grid.Row="21" Grid.Column="0" Content="The Trembling Earth" Margin="3,5,3,1" ToolTipService.ToolTip="The Trembling Earth" />
+                        <Label Grid.Row="22" Grid.Column="0" Content="Ending the Torment" Margin="3,5,3,1" ToolTipService.ToolTip="Ending the Torment" />
+                        <Label Grid.Row="23" Grid.Column="0" Content="Hidden Reinforcements" Margin="3,5,3,1" ToolTipService.ToolTip="Hidden Reinforcements" />
+                        <Label Grid.Row="24" Grid.Column="0" Content="Rebirth" Margin="3,5,3,1" ToolTipService.ToolTip="Rebirth" />
+                        <Label Grid.Row="25" Grid.Column="0" Content="An Unseen Peril" Margin="3,5,3,1" ToolTipService.ToolTip="An Unseen Peril" />
+                        <Label Grid.Row="26" Grid.Column="0" Content="Mysterious Invaders" Margin="3,5,3,1" ToolTipService.ToolTip="Mysterious Invaders" />
+                        <Label Grid.Row="27" Grid.Column="0" Content="The Invader" Margin="3,5,3,1" ToolTipService.ToolTip="The Invader" />
+                        <Label Grid.Row="28" Grid.Column="0" Content="Undead Uprising" Margin="3,5,3,1" ToolTipService.ToolTip="Undead Uprising" />
+                        <Label Grid.Row="29" Grid.Column="0" Content="Waiting in Ambush" Margin="3,5,3,1" ToolTipService.ToolTip="Waiting in Ambush" />
+                        <Label Grid.Row="30" Grid.Column="0" Content="Forceful Exorcism" Margin="3,5,3,1" ToolTipService.ToolTip="Forceful Exorcism" />
+                        <Label Grid.Row="31" Grid.Column="0" Content="The Dreamer's Dream" Margin="3,5,3,1" ToolTipService.ToolTip="The Dreamer's Dream" />
+                        <Label Grid.Row="32" Grid.Column="0" Content="The Aesthete's Spirit" Margin="3,5,3,1" ToolTipService.ToolTip="The Aesthete's Spirit" />
+                        <Label Grid.Row="33" Grid.Column="0" Content="Brothers in Arms" Margin="3,5,3,1" ToolTipService.ToolTip="Brothers in Arms" />
+                        <Label Grid.Row="34" Grid.Column="0" Content="Echoes of Witchcraft" Margin="3,5,3,1" ToolTipService.ToolTip="Echoes of Witchcraft" />
+                        <Label Grid.Row="35" Grid.Column="0" Content="Echoes of Mutation" Margin="3,5,3,1" ToolTipService.ToolTip="Echoes of Mutation" />
+                        <Label Grid.Row="36" Grid.Column="0" Content="Echoes of Lost Love" Margin="3,5,3,1" ToolTipService.ToolTip="Echoes of Lost Love" />
+                        <Label Grid.Row="37" Grid.Column="0" Content="Hidden Vaal Pathways" Margin="3,5,3,1" ToolTipService.ToolTip="Hidden Vaal Pathways" />
+                        <Label Grid.Row="38" Grid.Column="0" Content="The Undead Brutes" Margin="3,5,3,1" ToolTipService.ToolTip="The Undead Brutes" />
+                        <Label Grid.Row="39" Grid.Column="0" Content="The Four Feral Exiles" Margin="3,5,3,1" ToolTipService.ToolTip="The Four Feral Exiles" />
+                        <Label Grid.Row="40" Grid.Column="0" Content="Risen Blood" Margin="3,5,3,1" ToolTipService.ToolTip="Risen Blood" />
+                        <Label Grid.Row="41" Grid.Column="0" Content="The Brothers of Necromancy" Margin="3,5,3,1" ToolTipService.ToolTip="The Brothers of Necromancy" />
+                        <Label Grid.Row="42" Grid.Column="0" Content="Reforged Bonds" Margin="3,5,3,1" ToolTipService.ToolTip="Reforged Bonds" />
+                        <CheckBox Name="n0" Grid.Row="0" Grid.Column="1" Margin="3" IsChecked="{Binding Path=n0, Mode=TwoWay}" />
+                        <CheckBox Name="n1" Grid.Row="1" Grid.Column="1" Margin="3" IsChecked="{Binding Path=n1, Mode=TwoWay}" />
+                        <CheckBox Name="n2" Grid.Row="2" Grid.Column="1" Margin="3" IsChecked="{Binding Path=n2, Mode=TwoWay}" />
+                        <CheckBox Name="n3" Grid.Row="3" Grid.Column="1" Margin="3" IsChecked="{Binding Path=n3, Mode=TwoWay}" />
+                        <CheckBox Name="n4" Grid.Row="4" Grid.Column="1" Margin="3" IsChecked="{Binding Path=n4, Mode=TwoWay}" />
+                        <CheckBox Name="n5" Grid.Row="5" Grid.Column="1" Margin="3" IsChecked="{Binding Path=n5, Mode=TwoWay}" />
+                        <CheckBox Name="n6" Grid.Row="6" Grid.Column="1" Margin="3" IsChecked="{Binding Path=n6, Mode=TwoWay}" />
+                        <CheckBox Name="n7" Grid.Row="7" Grid.Column="1" Margin="3" IsChecked="{Binding Path=n7, Mode=TwoWay}" />
+                        <CheckBox Name="n8" Grid.Row="8" Grid.Column="1" Margin="3" IsChecked="{Binding Path=n8, Mode=TwoWay}" />
+                        <CheckBox Name="n9" Grid.Row="9" Grid.Column="1" Margin="3" IsChecked="{Binding Path=n9, Mode=TwoWay}" />
+                        <CheckBox Name="n10" Grid.Row="10" Grid.Column="1" Margin="3" IsChecked="{Binding Path=n10, Mode=TwoWay}" />
+                        <CheckBox Name="n11" Grid.Row="11" Grid.Column="1" Margin="3" IsChecked="{Binding Path=n11, Mode=TwoWay}" />
+                        <CheckBox Name="n12" Grid.Row="12" Grid.Column="1" Margin="3" IsChecked="{Binding Path=n12, Mode=TwoWay}" />
+                        <CheckBox Name="n13" Grid.Row="13" Grid.Column="1" Margin="3" IsChecked="{Binding Path=n13, Mode=TwoWay}" />
+                        <CheckBox Name="n14" Grid.Row="14" Grid.Column="1" Margin="3" IsChecked="{Binding Path=n14, Mode=TwoWay}" />
+                        <CheckBox Name="n15" Grid.Row="15" Grid.Column="1" Margin="3" IsChecked="{Binding Path=n15, Mode=TwoWay}" />
+                        <CheckBox Name="n16" Grid.Row="16" Grid.Column="1" Margin="3" IsChecked="{Binding Path=n16, Mode=TwoWay}" />
+                        <CheckBox Name="n17" Grid.Row="17" Grid.Column="1" Margin="3" IsChecked="{Binding Path=n17, Mode=TwoWay}" />
+                        <CheckBox Name="n18" Grid.Row="18" Grid.Column="1" Margin="3" IsChecked="{Binding Path=n18, Mode=TwoWay}" />
+                        <CheckBox Name="n19" Grid.Row="19" Grid.Column="1" Margin="3" IsChecked="{Binding Path=n19, Mode=TwoWay}" />
+                        <CheckBox Name="n20" Grid.Row="20" Grid.Column="1" Margin="3" IsChecked="{Binding Path=n20, Mode=TwoWay}" />
+                        <CheckBox Name="n21" Grid.Row="21" Grid.Column="1" Margin="3" IsChecked="{Binding Path=n21, Mode=TwoWay}" />
+                        <CheckBox Name="n22" Grid.Row="22" Grid.Column="1" Margin="3" IsChecked="{Binding Path=n22, Mode=TwoWay}" />
+                        <CheckBox Name="n23" Grid.Row="23" Grid.Column="1" Margin="3" IsChecked="{Binding Path=n23, Mode=TwoWay}" />
+                        <CheckBox Name="n24" Grid.Row="24" Grid.Column="1" Margin="3" IsChecked="{Binding Path=n24, Mode=TwoWay}" />
+                        <CheckBox Name="n25" Grid.Row="25" Grid.Column="1" Margin="3" IsChecked="{Binding Path=n25, Mode=TwoWay}" />
+                        <CheckBox Name="n26" Grid.Row="26" Grid.Column="1" Margin="3" IsChecked="{Binding Path=n26, Mode=TwoWay}" />
+                        <CheckBox Name="n27" Grid.Row="27" Grid.Column="1" Margin="3" IsChecked="{Binding Path=n27, Mode=TwoWay}" />
+                        <CheckBox Name="n28" Grid.Row="28" Grid.Column="1" Margin="3" IsChecked="{Binding Path=n28, Mode=TwoWay}" />
+                        <CheckBox Name="n29" Grid.Row="29" Grid.Column="1" Margin="3" IsChecked="{Binding Path=n29, Mode=TwoWay}" />
+                        <CheckBox Name="n30" Grid.Row="30" Grid.Column="1" Margin="3" IsChecked="{Binding Path=n30, Mode=TwoWay}" />
+                        <CheckBox Name="n31" Grid.Row="31" Grid.Column="1" Margin="3" IsChecked="{Binding Path=n31, Mode=TwoWay}" />
+                        <CheckBox Name="n32" Grid.Row="32" Grid.Column="1" Margin="3" IsChecked="{Binding Path=n32, Mode=TwoWay}" />
+                        <CheckBox Name="n33" Grid.Row="33" Grid.Column="1" Margin="3" IsChecked="{Binding Path=n33, Mode=TwoWay}" />
+                        <CheckBox Name="n34" Grid.Row="34" Grid.Column="1" Margin="3" IsChecked="{Binding Path=n34, Mode=TwoWay}" />
+                        <CheckBox Name="n35" Grid.Row="35" Grid.Column="1" Margin="3" IsChecked="{Binding Path=n35, Mode=TwoWay}" />
+                        <CheckBox Name="n36" Grid.Row="36" Grid.Column="1" Margin="3" IsChecked="{Binding Path=n36, Mode=TwoWay}" />
+                        <CheckBox Name="n37" Grid.Row="37" Grid.Column="1" Margin="3" IsChecked="{Binding Path=n37, Mode=TwoWay}" />
+                        <CheckBox Name="n38" Grid.Row="38" Grid.Column="1" Margin="3" IsChecked="{Binding Path=n38, Mode=TwoWay}" />
+                        <CheckBox Name="n39" Grid.Row="39" Grid.Column="1" Margin="3" IsChecked="{Binding Path=n39, Mode=TwoWay}" />
+                        <CheckBox Name="n40" Grid.Row="40" Grid.Column="1" Margin="3" IsChecked="{Binding Path=n40, Mode=TwoWay}" />
+                        <CheckBox Name="n41" Grid.Row="41" Grid.Column="1" Margin="3" IsChecked="{Binding Path=n41, Mode=TwoWay}" />
+                        <CheckBox Name="n42" Grid.Row="42" Grid.Column="1" Margin="3" IsChecked="{Binding Path=n42, Mode=TwoWay}" />
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Others">
+                    <Grid Margin="5,5,5,5" DataContext="{x:Static ns:NavaliSettings.Instance}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width='Auto' />
+                            <ColumnDefinition Width='Auto' />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Grid.Row="0" Grid.Column="0" Content="The Wealthy Exile" Margin="3,5,3,1" ToolTipService.ToolTip="The Wealthy Exile" />
+                        <Label Grid.Row="1" Grid.Column="0" Content="The Scout" Margin="3,5,3,1" ToolTipService.ToolTip="The Scout" />
+                        <Label Grid.Row="2" Grid.Column="0" Content="Hunter's Lesson" Margin="3,5,3,1" ToolTipService.ToolTip="Hunter's Lesson" />
+                        <Label Grid.Row="3" Grid.Column="0" Content="Gilded Within" Margin="3,5,3,1" ToolTipService.ToolTip="Gilded Within" />
+                        <Label Grid.Row="4" Grid.Column="0" Content="Kalandra's Craft" Margin="3,5,3,1" ToolTipService.ToolTip="Kalandra's Craft" />
+                        <Label Grid.Row="5" Grid.Column="0" Content="Bountiful Traps" Margin="3,5,3,1" ToolTipService.ToolTip="Bountiful Traps" />
+                        <CheckBox Name="o0" Grid.Row="0" Grid.Column="1" Margin="3" IsChecked="{Binding Path=o0, Mode=TwoWay}" />
+                        <CheckBox Name="o1" Grid.Row="1" Grid.Column="1" Margin="3" IsChecked="{Binding Path=o1, Mode=TwoWay}" />
+                        <CheckBox Name="o2" Grid.Row="2" Grid.Column="1" Margin="3" IsChecked="{Binding Path=o2, Mode=TwoWay}" />
+                        <CheckBox Name="o3" Grid.Row="3" Grid.Column="1" Margin="3" IsChecked="{Binding Path=o3, Mode=TwoWay}" />
+                        <CheckBox Name="o4" Grid.Row="4" Grid.Column="1" Margin="3" IsChecked="{Binding Path=o4, Mode=TwoWay}" />
+                        <CheckBox Name="o5" Grid.Row="5" Grid.Column="1" Margin="3" IsChecked="{Binding Path=o5, Mode=TwoWay}" />
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Prophecy Chains">
+                    <Grid Margin="5,5,5,5" DataContext="{x:Static ns:NavaliSettings.Instance}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width='Auto' />
+                            <ColumnDefinition Width='Auto' />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Grid.Row="0" Grid.Column="0" Content="The Unbreathing Queen I" Margin="3,5,3,1" ToolTipService.ToolTip="The Unbreathing Queen I" />
+                        <Label Grid.Row="1" Grid.Column="0" Content="The Unbreathing Queen II" Margin="3,5,3,1" ToolTipService.ToolTip="The Unbreathing Queen II" />
+                        <Label Grid.Row="2" Grid.Column="0" Content="The Unbreathing Queen III" Margin="3,5,3,1" ToolTipService.ToolTip="The Unbreathing Queen III" />
+                        <Label Grid.Row="3" Grid.Column="0" Content="The Unbreathing Queen IV" Margin="3,5,3,1" ToolTipService.ToolTip="The Unbreathing Queen IV" />
+                        <Label Grid.Row="4" Grid.Column="0" Content="The Unbreathing Queen V" Margin="3,5,3,1" ToolTipService.ToolTip="The Unbreathing Queen V" />
+                        <Label Grid.Row="5" Grid.Column="0" Content="Unbearable Whispers I" Margin="3,5,3,1" ToolTipService.ToolTip="Unbearable Whispers I" />
+                        <Label Grid.Row="6" Grid.Column="0" Content="Unbearable Whispers II" Margin="3,5,3,1" ToolTipService.ToolTip="Unbearable Whispers II" />
+                        <Label Grid.Row="7" Grid.Column="0" Content="Unbearable Whispers III" Margin="3,5,3,1" ToolTipService.ToolTip="Unbearable Whispers III" />
+                        <Label Grid.Row="8" Grid.Column="0" Content="Unbearable Whispers IV" Margin="3,5,3,1" ToolTipService.ToolTip="Unbearable Whispers IV" />
+                        <Label Grid.Row="9" Grid.Column="0" Content="Unbearable Whispers V" Margin="3,5,3,1" ToolTipService.ToolTip="Unbearable Whispers V" />
+                        <Label Grid.Row="10" Grid.Column="0" Content="The Plaguemaw I" Margin="3,5,3,1" ToolTipService.ToolTip="The Plaguemaw I" />
+                        <Label Grid.Row="11" Grid.Column="0" Content="The Plaguemaw II" Margin="3,5,3,1" ToolTipService.ToolTip="The Plaguemaw II" />
+                        <Label Grid.Row="12" Grid.Column="0" Content="The Plaguemaw III" Margin="3,5,3,1" ToolTipService.ToolTip="The Plaguemaw III" />
+                        <Label Grid.Row="13" Grid.Column="0" Content="The Plaguemaw IV" Margin="3,5,3,1" ToolTipService.ToolTip="The Plaguemaw IV" />
+                        <Label Grid.Row="14" Grid.Column="0" Content="The Plaguemaw V" Margin="3,5,3,1" ToolTipService.ToolTip="The Plaguemaw V" />
+                        <Label Grid.Row="15" Grid.Column="0" Content="The Feral Lord I" Margin="3,5,3,1" ToolTipService.ToolTip="The Feral Lord I" />
+                        <Label Grid.Row="16" Grid.Column="0" Content="The Feral Lord II" Margin="3,5,3,1" ToolTipService.ToolTip="The Feral Lord II" />
+                        <Label Grid.Row="17" Grid.Column="0" Content="The Feral Lord III" Margin="3,5,3,1" ToolTipService.ToolTip="The Feral Lord III" />
+                        <Label Grid.Row="18" Grid.Column="0" Content="The Feral Lord IV" Margin="3,5,3,1" ToolTipService.ToolTip="The Feral Lord IV" />
+                        <Label Grid.Row="19" Grid.Column="0" Content="The Feral Lord V" Margin="3,5,3,1" ToolTipService.ToolTip="The Feral Lord V" />
+                        <Label Grid.Row="20" Grid.Column="0" Content="The Ambitious Bandit I" Margin="3,5,3,1" ToolTipService.ToolTip="The Ambitious Bandit I" />
+                        <Label Grid.Row="21" Grid.Column="0" Content="The Ambitious Bandit II" Margin="3,5,3,1" ToolTipService.ToolTip="The Ambitious Bandit II" />
+                        <Label Grid.Row="22" Grid.Column="0" Content="The Ambitious Bandit III" Margin="3,5,3,1" ToolTipService.ToolTip="The Ambitious Bandit III" />
+                        <Label Grid.Row="23" Grid.Column="0" Content="Deadly Rivalry I" Margin="3,5,3,1" ToolTipService.ToolTip="Deadly Rivalry I" />
+                        <Label Grid.Row="24" Grid.Column="0" Content="Deadly Rivalry II" Margin="3,5,3,1" ToolTipService.ToolTip="Deadly Rivalry II" />
+                        <Label Grid.Row="25" Grid.Column="0" Content="Deadly Rivalry III" Margin="3,5,3,1" ToolTipService.ToolTip="Deadly Rivalry III" />
+                        <Label Grid.Row="26" Grid.Column="0" Content="Deadly Rivalry IV" Margin="3,5,3,1" ToolTipService.ToolTip="Deadly Rivalry IV" />
+                        <Label Grid.Row="27" Grid.Column="0" Content="Deadly Rivalry V" Margin="3,5,3,1" ToolTipService.ToolTip="Deadly Rivalry V" />
+                        <Label Grid.Row="28" Grid.Column="0" Content="The Warmongers I" Margin="3,5,3,1" ToolTipService.ToolTip="The Warmongers I" />
+                        <Label Grid.Row="29" Grid.Column="0" Content="The Warmongers II" Margin="3,5,3,1" ToolTipService.ToolTip="The Warmongers II" />
+                        <Label Grid.Row="30" Grid.Column="0" Content="The Warmongers III" Margin="3,5,3,1" ToolTipService.ToolTip="The Warmongers III" />
+                        <Label Grid.Row="31" Grid.Column="0" Content="The Warmongers IV" Margin="3,5,3,1" ToolTipService.ToolTip="The Warmongers IV" />
+                        <Label Grid.Row="32" Grid.Column="0" Content="Beyond Sight I" Margin="3,5,3,1" ToolTipService.ToolTip="Beyond Sight I" />
+                        <Label Grid.Row="33" Grid.Column="0" Content="Beyond Sight II" Margin="3,5,3,1" ToolTipService.ToolTip="Beyond Sight II" />
+                        <Label Grid.Row="34" Grid.Column="0" Content="Beyond Sight III" Margin="3,5,3,1" ToolTipService.ToolTip="Beyond Sight III" />
+                        <Label Grid.Row="35" Grid.Column="0" Content="Beyond Sight IV" Margin="3,5,3,1" ToolTipService.ToolTip="Beyond Sight IV" />
+                        <Label Grid.Row="36" Grid.Column="0" Content="Thaumaturgical History I" Margin="3,5,3,1" ToolTipService.ToolTip="Thaumaturgical History I" />
+                        <Label Grid.Row="37" Grid.Column="0" Content="Thaumaturgical History II" Margin="3,5,3,1" ToolTipService.ToolTip="Thaumaturgical History II" />
+                        <Label Grid.Row="38" Grid.Column="0" Content="Thaumaturgical History III" Margin="3,5,3,1" ToolTipService.ToolTip="Thaumaturgical History III" />
+                        <Label Grid.Row="39" Grid.Column="0" Content="Thaumaturgical History IV" Margin="3,5,3,1" ToolTipService.ToolTip="Thaumaturgical History IV" />
+                        <Label Grid.Row="40" Grid.Column="0" Content="Ancient Rivalries I" Margin="3,5,3,1" ToolTipService.ToolTip="Ancient Rivalries I" />
+                        <Label Grid.Row="41" Grid.Column="0" Content="Ancient Rivalries II" Margin="3,5,3,1" ToolTipService.ToolTip="Ancient Rivalries II" />
+                        <Label Grid.Row="42" Grid.Column="0" Content="Ancient Rivalries III" Margin="3,5,3,1" ToolTipService.ToolTip="Ancient Rivalries III" />
+                        <Label Grid.Row="43" Grid.Column="0" Content="Ancient Rivalries IV" Margin="3,5,3,1" ToolTipService.ToolTip="Ancient Rivalries IV" />
+                        <Label Grid.Row="44" Grid.Column="0" Content="Anarchy's End I" Margin="3,5,3,1" ToolTipService.ToolTip="Anarchy's End I" />
+                        <Label Grid.Row="45" Grid.Column="0" Content="Anarchy's End II" Margin="3,5,3,1" ToolTipService.ToolTip="Anarchy's End II" />
+                        <Label Grid.Row="46" Grid.Column="0" Content="Anarchy's End III" Margin="3,5,3,1" ToolTipService.ToolTip="Anarchy's End III" />
+                        <Label Grid.Row="47" Grid.Column="0" Content="Anarchy's End IV" Margin="3,5,3,1" ToolTipService.ToolTip="Anarchy's End IV" />
+                        <Label Grid.Row="48" Grid.Column="0" Content="Day of Sacrifice I" Margin="3,5,3,1" ToolTipService.ToolTip="Day of Sacrifice I" />
+                        <Label Grid.Row="49" Grid.Column="0" Content="Day of Sacrifice II" Margin="3,5,3,1" ToolTipService.ToolTip="Day of Sacrifice II" />
+                        <Label Grid.Row="50" Grid.Column="0" Content="Day of Sacrifice III" Margin="3,5,3,1" ToolTipService.ToolTip="Day of Sacrifice III" />
+                        <Label Grid.Row="51" Grid.Column="0" Content="Day of Sacrifice IV" Margin="3,5,3,1" ToolTipService.ToolTip="Day of Sacrifice IV" />
+                        <CheckBox Name="p0" Grid.Row="0" Grid.Column="1" Margin="3" IsChecked="{Binding Path=p0, Mode=TwoWay}" />
+                        <CheckBox Name="p1" Grid.Row="1" Grid.Column="1" Margin="3" IsChecked="{Binding Path=p1, Mode=TwoWay}" />
+                        <CheckBox Name="p2" Grid.Row="2" Grid.Column="1" Margin="3" IsChecked="{Binding Path=p2, Mode=TwoWay}" />
+                        <CheckBox Name="p3" Grid.Row="3" Grid.Column="1" Margin="3" IsChecked="{Binding Path=p3, Mode=TwoWay}" />
+                        <CheckBox Name="p4" Grid.Row="4" Grid.Column="1" Margin="3" IsChecked="{Binding Path=p4, Mode=TwoWay}" />
+                        <CheckBox Name="p5" Grid.Row="5" Grid.Column="1" Margin="3" IsChecked="{Binding Path=p5, Mode=TwoWay}" />
+                        <CheckBox Name="p6" Grid.Row="6" Grid.Column="1" Margin="3" IsChecked="{Binding Path=p6, Mode=TwoWay}" />
+                        <CheckBox Name="p7" Grid.Row="7" Grid.Column="1" Margin="3" IsChecked="{Binding Path=p7, Mode=TwoWay}" />
+                        <CheckBox Name="p8" Grid.Row="8" Grid.Column="1" Margin="3" IsChecked="{Binding Path=p8, Mode=TwoWay}" />
+                        <CheckBox Name="p9" Grid.Row="9" Grid.Column="1" Margin="3" IsChecked="{Binding Path=p9, Mode=TwoWay}" />
+                        <CheckBox Name="p10" Grid.Row="10" Grid.Column="1" Margin="3" IsChecked="{Binding Path=p10, Mode=TwoWay}" />
+                        <CheckBox Name="p11" Grid.Row="11" Grid.Column="1" Margin="3" IsChecked="{Binding Path=p11, Mode=TwoWay}" />
+                        <CheckBox Name="p12" Grid.Row="12" Grid.Column="1" Margin="3" IsChecked="{Binding Path=p12, Mode=TwoWay}" />
+                        <CheckBox Name="p13" Grid.Row="13" Grid.Column="1" Margin="3" IsChecked="{Binding Path=p13, Mode=TwoWay}" />
+                        <CheckBox Name="p14" Grid.Row="14" Grid.Column="1" Margin="3" IsChecked="{Binding Path=p14, Mode=TwoWay}" />
+                        <CheckBox Name="p15" Grid.Row="15" Grid.Column="1" Margin="3" IsChecked="{Binding Path=p15, Mode=TwoWay}" />
+                        <CheckBox Name="p16" Grid.Row="16" Grid.Column="1" Margin="3" IsChecked="{Binding Path=p16, Mode=TwoWay}" />
+                        <CheckBox Name="p17" Grid.Row="17" Grid.Column="1" Margin="3" IsChecked="{Binding Path=p17, Mode=TwoWay}" />
+                        <CheckBox Name="p18" Grid.Row="18" Grid.Column="1" Margin="3" IsChecked="{Binding Path=p18, Mode=TwoWay}" />
+                        <CheckBox Name="p19" Grid.Row="19" Grid.Column="1" Margin="3" IsChecked="{Binding Path=p19, Mode=TwoWay}" />
+                        <CheckBox Name="p20" Grid.Row="20" Grid.Column="1" Margin="3" IsChecked="{Binding Path=p20, Mode=TwoWay}" />
+                        <CheckBox Name="p21" Grid.Row="21" Grid.Column="1" Margin="3" IsChecked="{Binding Path=p21, Mode=TwoWay}" />
+                        <CheckBox Name="p22" Grid.Row="22" Grid.Column="1" Margin="3" IsChecked="{Binding Path=p22, Mode=TwoWay}" />
+                        <CheckBox Name="p23" Grid.Row="23" Grid.Column="1" Margin="3" IsChecked="{Binding Path=p23, Mode=TwoWay}" />
+                        <CheckBox Name="p24" Grid.Row="24" Grid.Column="1" Margin="3" IsChecked="{Binding Path=p24, Mode=TwoWay}" />
+                        <CheckBox Name="p25" Grid.Row="25" Grid.Column="1" Margin="3" IsChecked="{Binding Path=p25, Mode=TwoWay}" />
+                        <CheckBox Name="p26" Grid.Row="26" Grid.Column="1" Margin="3" IsChecked="{Binding Path=p26, Mode=TwoWay}" />
+                        <CheckBox Name="p27" Grid.Row="27" Grid.Column="1" Margin="3" IsChecked="{Binding Path=p27, Mode=TwoWay}" />
+                        <CheckBox Name="p28" Grid.Row="28" Grid.Column="1" Margin="3" IsChecked="{Binding Path=p28, Mode=TwoWay}" />
+                        <CheckBox Name="p29" Grid.Row="29" Grid.Column="1" Margin="3" IsChecked="{Binding Path=p29, Mode=TwoWay}" />
+                        <CheckBox Name="p30" Grid.Row="30" Grid.Column="1" Margin="3" IsChecked="{Binding Path=p30, Mode=TwoWay}" />
+                        <CheckBox Name="p31" Grid.Row="31" Grid.Column="1" Margin="3" IsChecked="{Binding Path=p31, Mode=TwoWay}" />
+                        <CheckBox Name="p32" Grid.Row="32" Grid.Column="1" Margin="3" IsChecked="{Binding Path=p32, Mode=TwoWay}" />
+                        <CheckBox Name="p33" Grid.Row="33" Grid.Column="1" Margin="3" IsChecked="{Binding Path=p33, Mode=TwoWay}" />
+                        <CheckBox Name="p34" Grid.Row="34" Grid.Column="1" Margin="3" IsChecked="{Binding Path=p34, Mode=TwoWay}" />
+                        <CheckBox Name="p35" Grid.Row="35" Grid.Column="1" Margin="3" IsChecked="{Binding Path=p35, Mode=TwoWay}" />
+                        <CheckBox Name="p36" Grid.Row="36" Grid.Column="1" Margin="3" IsChecked="{Binding Path=p36, Mode=TwoWay}" />
+                        <CheckBox Name="p37" Grid.Row="37" Grid.Column="1" Margin="3" IsChecked="{Binding Path=p37, Mode=TwoWay}" />
+                        <CheckBox Name="p38" Grid.Row="38" Grid.Column="1" Margin="3" IsChecked="{Binding Path=p38, Mode=TwoWay}" />
+                        <CheckBox Name="p39" Grid.Row="39" Grid.Column="1" Margin="3" IsChecked="{Binding Path=p39, Mode=TwoWay}" />
+                        <CheckBox Name="p40" Grid.Row="40" Grid.Column="1" Margin="3" IsChecked="{Binding Path=p40, Mode=TwoWay}" />
+                        <CheckBox Name="p41" Grid.Row="41" Grid.Column="1" Margin="3" IsChecked="{Binding Path=p41, Mode=TwoWay}" />
+                        <CheckBox Name="p42" Grid.Row="42" Grid.Column="1" Margin="3" IsChecked="{Binding Path=p42, Mode=TwoWay}" />
+                        <CheckBox Name="p43" Grid.Row="43" Grid.Column="1" Margin="3" IsChecked="{Binding Path=p43, Mode=TwoWay}" />
+                        <CheckBox Name="p44" Grid.Row="44" Grid.Column="1" Margin="3" IsChecked="{Binding Path=p44, Mode=TwoWay}" />
+                        <CheckBox Name="p45" Grid.Row="45" Grid.Column="1" Margin="3" IsChecked="{Binding Path=p45, Mode=TwoWay}" />
+                        <CheckBox Name="p46" Grid.Row="46" Grid.Column="1" Margin="3" IsChecked="{Binding Path=p46, Mode=TwoWay}" />
+                        <CheckBox Name="p47" Grid.Row="47" Grid.Column="1" Margin="3" IsChecked="{Binding Path=p47, Mode=TwoWay}" />
+                        <CheckBox Name="p48" Grid.Row="48" Grid.Column="1" Margin="3" IsChecked="{Binding Path=p48, Mode=TwoWay}" />
+                        <CheckBox Name="p49" Grid.Row="49" Grid.Column="1" Margin="3" IsChecked="{Binding Path=p49, Mode=TwoWay}" />
+                        <CheckBox Name="p50" Grid.Row="50" Grid.Column="1" Margin="3" IsChecked="{Binding Path=p50, Mode=TwoWay}" />
+                        <CheckBox Name="p51" Grid.Row="51" Grid.Column="1" Margin="3" IsChecked="{Binding Path=p51, Mode=TwoWay}" />
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Tempests">
+                    <Grid Margin="5,5,5,5" DataContext="{x:Static ns:NavaliSettings.Instance}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width='Auto' />
+                            <ColumnDefinition Width='Auto' />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Grid.Row="0" Grid.Column="0" Content="Fire from the Sky" Margin="3,5,3,1" ToolTipService.ToolTip="Fire from the Sky" />
+                        <Label Grid.Row="1" Grid.Column="0" Content="Ice from Above" Margin="3,5,3,1" ToolTipService.ToolTip="Ice from Above" />
+                        <Label Grid.Row="2" Grid.Column="0" Content="Lightning Falls" Margin="3,5,3,1" ToolTipService.ToolTip="Lightning Falls" />
+                        <Label Grid.Row="3" Grid.Column="0" Content="The Undead Storm" Margin="3,5,3,1" ToolTipService.ToolTip="The Undead Storm" />
+                        <Label Grid.Row="4" Grid.Column="0" Content="Crushing Squall" Margin="3,5,3,1" ToolTipService.ToolTip="Crushing Squall" />
+                        <Label Grid.Row="5" Grid.Column="0" Content="Vaal Winds" Margin="3,5,3,1" ToolTipService.ToolTip="Vaal Winds" />
+                        <CheckBox Name="t0" Grid.Row="0" Grid.Column="1" Margin="3" IsChecked="{Binding Path=t0, Mode=TwoWay}" />
+                        <CheckBox Name="t1" Grid.Row="1" Grid.Column="1" Margin="3" IsChecked="{Binding Path=t1, Mode=TwoWay}" />
+                        <CheckBox Name="t2" Grid.Row="2" Grid.Column="1" Margin="3" IsChecked="{Binding Path=t2, Mode=TwoWay}" />
+                        <CheckBox Name="t3" Grid.Row="3" Grid.Column="1" Margin="3" IsChecked="{Binding Path=t3, Mode=TwoWay}" />
+                        <CheckBox Name="t4" Grid.Row="4" Grid.Column="1" Margin="3" IsChecked="{Binding Path=t4, Mode=TwoWay}" />
+                        <CheckBox Name="t5" Grid.Row="5" Grid.Column="1" Margin="3" IsChecked="{Binding Path=t5, Mode=TwoWay}" />
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Remaining">
+                    <Grid Margin="5,5,5,5" DataContext="{x:Static ns:NavaliSettings.Instance}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width='Auto' />
+                            <ColumnDefinition Width='Auto' />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Grid.Row="0" Grid.Column="0" Content="The Fortune Teller's Collection" Margin="3,5,3,1" ToolTipService.ToolTip="The Fortune Teller's Collection" />
+                        <Label Grid.Row="1" Grid.Column="0" Content="Lasting Impressions" Margin="3,5,3,1" ToolTipService.ToolTip="Lasting Impressions" />
+                        <Label Grid.Row="2" Grid.Column="0" Content="Plague of Rats" Margin="3,5,3,1" ToolTipService.ToolTip="Plague of Rats" />
+                        <Label Grid.Row="3" Grid.Column="0" Content="Plague of Frogs" Margin="3,5,3,1" ToolTipService.ToolTip="Plague of Frogs" />
+                        <Label Grid.Row="4" Grid.Column="0" Content="Twice Enchanted" Margin="3,5,3,1" ToolTipService.ToolTip="Twice Enchanted" />
+                        <Label Grid.Row="5" Grid.Column="0" Content="The Dream Trial" Margin="3,5,3,1" ToolTipService.ToolTip="The Dream Trial" />
+                        <Label Grid.Row="6" Grid.Column="0" Content="The Lost Maps" Margin="3,5,3,1" ToolTipService.ToolTip="The Lost Maps" />
+                        <Label Grid.Row="7" Grid.Column="0" Content="Smothering Tendrils" Margin="3,5,3,1" ToolTipService.ToolTip="Smothering Tendrils" />
+                        <CheckBox Name="x0" Grid.Row="0" Grid.Column="1" Margin="3" IsChecked="{Binding Path=x0, Mode=TwoWay}" />
+                        <CheckBox Name="x1" Grid.Row="1" Grid.Column="1" Margin="3" IsChecked="{Binding Path=x1, Mode=TwoWay}" />
+                        <CheckBox Name="x2" Grid.Row="2" Grid.Column="1" Margin="3" IsChecked="{Binding Path=x2, Mode=TwoWay}" />
+                        <CheckBox Name="x3" Grid.Row="3" Grid.Column="1" Margin="3" IsChecked="{Binding Path=x3, Mode=TwoWay}" />
+                        <CheckBox Name="x4" Grid.Row="4" Grid.Column="1" Margin="3" IsChecked="{Binding Path=x4, Mode=TwoWay}" />
+                        <CheckBox Name="x5" Grid.Row="5" Grid.Column="1" Margin="3" IsChecked="{Binding Path=x5, Mode=TwoWay}" />
+                        <CheckBox Name="x6" Grid.Row="6" Grid.Column="1" Margin="3" IsChecked="{Binding Path=x6, Mode=TwoWay}" />
+                        <CheckBox Name="x7" Grid.Row="7" Grid.Column="1" Margin="3" IsChecked="{Binding Path=x7, Mode=TwoWay}" />
+                    </Grid>
+                </TabItem>
+            </TabControl>
+        </ScrollViewer>
+
+    </Grid>
+</UserControl>
