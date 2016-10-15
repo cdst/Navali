@@ -332,7 +332,7 @@
                         <CheckBox Name="e44" Grid.Row="44" Grid.Column="1" Margin="3" IsChecked="{Binding Path=e44, Mode=TwoWay}" />
                         <CheckBox Name="e45" Grid.Row="45" Grid.Column="1" Margin="3" IsChecked="{Binding Path=e45, Mode=TwoWay}" />
                         <CheckBox Name="e46" Grid.Row="46" Grid.Column="1" Margin="3" IsChecked="{Binding Path=e46, Mode=TwoWay}" />
-                        <CheckBox Name="e47" Grid.Row="47" Grid.Column="1" Margin="3" IsChecked="{Binding Path=e46, Mode=TwoWay}" />
+                        <CheckBox Name="e47" Grid.Row="47" Grid.Column="1" Margin="3" IsChecked="{Binding Path=e47, Mode=TwoWay}" />
                     </Grid>
                 </TabItem>
                 <TabItem Header="Currency">

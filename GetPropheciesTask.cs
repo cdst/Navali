@@ -114,7 +114,7 @@ namespace Navali
         }
         public string Version
         {
-            get { return "0.0.1.0"; }
+            get { return "0.0.1.1"; }
         }
         public object Execute(string name, params dynamic[] param)
         {
