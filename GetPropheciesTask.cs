@@ -8,7 +8,7 @@ using Loki.Game;
 using Loki.Game.Objects;
 using Buddy.Coroutines;
 using DialogUi = Loki.Game.LokiPoe.InGameState.NpcDialogUi;
-using EXtensions;
+
 
 
 namespace Navali
@@ -27,6 +27,11 @@ namespace Navali
             if (type != "task_execute") return false;
             var navali = "Navali";
 
+            if (Settings.debugmode && (LokiPoe.Me.IsInTown || LokiPoe.Me.IsInHideout))
+            {
+                Log.DebugFormat("[Navali] Debug GetPropheciesTask: We are in Town or Hideout, we have {0} coins and need {1} to trigger seeking Prophecies.", CommunityLib.Data.CachedItemsInStash.Where(d => d.FullName.Equals("Silver Coin")).Sum(s => s.StackCount), Int32.Parse(Settings.NumCoinsMin));
+            }
+
             if ((LokiPoe.Me.IsInTown || LokiPoe.Me.IsInHideout) && (CommunityLib.Data.CachedItemsInStash.Where(d => d.FullName.Equals("Silver Coin")).Sum(s => s.StackCount) >= Int32.Parse(Settings.NumCoinsMin)))
             {
                 if (!CommunityLib.Data.ItemsInStashAlreadyCached)
@@ -34,20 +39,26 @@ namespace Navali
                     Log.ErrorFormat("[Navali] Need to Cache Stash");
                     await CommunityLib.Data.UpdateItemsInStash(true);
                 }
-                Log.InfoFormat("[Navali] We have {0} coins and need {1} coins to seek Prophecies", CommunityLib.Data.CachedItemsInStash.Where(d => d.FullName.Equals("Silver Coin")).Sum(s => s.StackCount), Int32.Parse(Settings.NumCoinsMin));
 
                 var npcs = LokiPoe.ObjectManager.Objects
                     .OfType<Npc>()
                     .Where(npc => npc.IsTargetable)
                     .ToList();
-
+                
                 if (npcs.Count == 0)
                 {
                     Log.Error("[Navali] Failed to find any NPCs. Where the hell are you and why did this trigger when you're not in town?");
                     return false;
                 }
+                
                 var propheciesCount = LokiPoe.Me.Prophecies.Count;
                 var numProphecies = (7 - LokiPoe.Me.Prophecies.Count);
+
+                if (Settings.debugmode)
+                {
+                    Log.DebugFormat("[Navali] We have {0} Prophecies and can get {1} new Prophecies", propheciesCount, numProphecies);
+                }
+
                 Log.InfoFormat("[Navali] Now going to get {0} Prophecies", numProphecies);
                 if (numProphecies != -1)
                 {
@@ -67,7 +78,7 @@ namespace Navali
                         }
 
                         var seekProphecy = "Seek Prophecy";
-                        var dialog = DialogUi.DialogEntries.FirstOrDefault(d => d.Text.ContainsIgnorecase(seekProphecy))?.Text;
+                        var dialog = DialogUi.DialogEntries.FirstOrDefault(d => d.Text.Contains(seekProphecy))?.Text;
                         if (dialog == null)
                         {
                             Log.ErrorFormat("[Navali] Failed to find any dialog with {0}. Out of currency?", seekProphecy);
@@ -114,7 +125,7 @@ namespace Navali
         }
         public string Version
         {
-            get { return "0.0.1.1"; }
+            get { return "0.0.1.3"; }
         }
         public object Execute(string name, params dynamic[] param)
         {

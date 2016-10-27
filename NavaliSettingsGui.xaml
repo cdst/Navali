@@ -18,6 +18,7 @@
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto" />
@@ -25,8 +26,10 @@
                         </Grid.ColumnDefinitions>
                         <Label Grid.Row="0" Grid.Column="0" Content="On the following tabs, check which Prophecies you want to seal." Margin="3,5,3,1" />
                         <Label Grid.Row="1" Grid.Column="0" Content="Minimum number of coins to have before interacting with Navali" />
+                        <Label Grid.Row="2" Grid.Column="0" Content="I have a Problem, enable debug Messages" />
                         <TextBox Grid.Row="1" Grid.Column="1" Margin="3" Text="{Binding Path=NumCoinsMin, Mode=TwoWay}" />
-                </Grid>
+                        <CheckBox Grid.Row="2" Grid.Column="2" Margin="3" IsChecked="{Binding Path=DebugMode, Mode=TwoWay}" />
+                    </Grid>
                 </TabItem>
                 <TabItem Header="Masters">
                     <Grid Margin="5,5,5,5" DataContext="{x:Static ns:NavaliSettings.Instance}">

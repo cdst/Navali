@@ -1,4 +1,5 @@
-﻿using System;
+﻿using System.Diagnostics;
+using System;
 using System.Threading.Tasks;
 using System.Linq;
 using log4net;
@@ -8,8 +9,8 @@ using Loki.Game;
 using Loki.Game.Objects;
 using Buddy.Coroutines;
 using DialogUi = Loki.Game.LokiPoe.InGameState.NpcDialogUi;
-using EXtensions;
 using CommunityLib;
+using Loki.Game.GameData;
 
 namespace Navali
 {
@@ -26,22 +27,23 @@ namespace Navali
         {
             if (type != "task_execute") return false;
 
-            //Log.ErrorFormat("[Navali] are we in town, and how many coins do we have ({0}/{1})?", CommunityLib.Data.CachedItemsInStash.Where(d => d.FullName.Equals("Silver Coin")).Sum(s => s.StackCount), Int32.Parse(Settings.NumCoinsMin));
+            if (Settings.debugmode && (LokiPoe.Me.IsInTown || LokiPoe.Me.IsInHideout))
+            {
+                Log.DebugFormat("[Navali] Debug SealPropheciesTask: We are in Town or Hideout, we have {0} coins and need {1} to trigger seeking Prophecies.", CommunityLib.Data.CachedItemsInStash.Where(d => d.FullName.Equals("Silver Coin")).Sum(s => s.StackCount), Int32.Parse(Settings.NumCoinsMin));
+            }
 
             if ((LokiPoe.Me.IsInTown || LokiPoe.Me.IsInHideout) && (CommunityLib.Data.CachedItemsInStash.Where(d => d.FullName.Equals("Silver Coin")).Sum(s => s.StackCount) >= Int32.Parse(Settings.NumCoinsMin)))
             {
-                //Log.ErrorFormat("[Navali] We are in town, and have enough coins to trigger ({0}/{1})?", CommunityLib.Data.CachedItemsInStash.Where(d => d.FullName.Equals("Silver Coin")).Sum(s => s.StackCount), Int32.Parse(Settings.NumCoinsMin));
                 if (!CommunityLib.Data.ItemsInStashAlreadyCached)
                 {
                     Log.ErrorFormat("[Navali] Need to update Stash cache");
                     await CommunityLib.Data.UpdateItemsInStash(true);
                 }
-                //Log.ErrorFormat("[Navali] Caching NPCs");
                 var npcs = LokiPoe.ObjectManager.Objects
                     .OfType<Npc>()
                     .Where(npc => npc.IsTargetable)
                     .ToList();
-                //Log.ErrorFormat("[Navali] We cached {0} NPCs", npcs.Count);
+
                 if (npcs.Count == 0)
                 {
                     Log.Error("[Navali] Failed to find any NPCs. Where the hell are you and why did this trigger when you're not in town?");
@@ -49,10 +51,12 @@ namespace Navali
                 }
 
 
-                //Log.ErrorFormat("[Navali] Now checking how many prophecies we have");
+
                 var propheciesCount = LokiPoe.Me.Prophecies.Count;
-                //Log.ErrorFormat("[Navali] We have {0} Prophecies", propheciesCount);
-                //Log.ErrorFormat("[Navali] starting sealing, num prophecies: {0}.", propheciesCount);
+                if (Settings.debugmode)
+                {
+                    Log.ErrorFormat("[Navali] Debug SealPropheciesTask: We have {0} Prophecies", propheciesCount);
+                }
 
                 if (LokiPoe.Me.Prophecies.Count >= 1)
                 {
@@ -65,6 +69,21 @@ namespace Navali
                 return false;    
             }
             return false;
+        }
+        private static async Task<bool> WaitForCursorToBeEmpty(int timeout = 5000)
+        {
+            var sw = Stopwatch.StartNew();
+            while (LokiPoe.InstanceInfo.GetPlayerInventoryItemsBySlot(InventorySlot.Cursor).Any())
+            {
+                Log.InfoFormat("[Navali] Waiting for the cursor to be empty.");
+                await Coroutines.LatencyWait();
+                if (sw.ElapsedMilliseconds > timeout)
+                {
+                    Log.InfoFormat("[Navali] Timeout while waiting for the cursor to become empty.");
+                    return false;
+                }
+            }
+            return true;
         }
         private async Task<bool> SealProphecies()
         {
@@ -91,7 +110,7 @@ namespace Navali
                         return false;
                     }
                     var sealProphecy = "Seal Prophecy";
-                    var dialog = DialogUi.DialogEntries.FirstOrDefault(d => d.Text.ContainsIgnorecase(sealProphecy))?.Text;
+                    var dialog = DialogUi.DialogEntries.FirstOrDefault(d => d.Text.Contains(sealProphecy))?.Text;
                     if (dialog == null)
                     {
                         Log.ErrorFormat("[Navali] Failed to find any dialog with {0}. Out of currency?", sealProphecy);
@@ -131,12 +150,15 @@ namespace Navali
                             return false;
 
                         }
-                        if (!await LokiPoe.InGameState.InventoryUi.InventoryControl_Main.PlaceItemFromCursor(new Vector2i(col, row)))
+                        var cursor = LokiPoe.InGameState.InventoryUi.InventoryControl_Main.PlaceCursorInto(col,row);
+                        if (cursor == PlaceCursorIntoResult.None)
                         {
-                            Log.Error("[Navali] Unable to place item in inventory, now stopping the bot because it cannot continue.");
-                            BotManager.Stop();
-                            return false;
-
+                            if (!await WaitForCursorToBeEmpty())
+                            {
+                                Log.Error("[Navali] Unable to place item in inventory, now stopping the bot because it cannot continue.");
+                                BotManager.Stop();
+                                return false;
+                            }
                         }
                     }
                     else
@@ -185,7 +207,7 @@ namespace Navali
         }
         public string Version
         {
-            get { return "0.0.1.1"; }
+            get { return "0.0.1.3"; }
         }
         public object Execute(string name, params dynamic[] param)
         {
