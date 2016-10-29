@@ -99,7 +99,8 @@ namespace Navali
 
         private void AddPropheciesTask()
         {
-            AddTask(new GetPropheciesTask(), "SortInventoryTask", AddType.After);
+            Log.DebugFormat("[Navali] Now adding Prophecy specific tasks");
+            AddTask(new GetPropheciesTask(), "StashTask", AddType.After);
             AddTask(new SealPropheciesTask(), "GetPropheciesTask", AddType.After);
         }
         #endregion

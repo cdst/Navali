@@ -27,7 +27,7 @@ namespace Navali
         {
             if (type != "task_execute") return false;
 
-            if (Settings.debugmode && (LokiPoe.Me.IsInTown || LokiPoe.Me.IsInHideout))
+            if (Settings.DebugMode && (LokiPoe.Me.IsInTown || LokiPoe.Me.IsInHideout))
             {
                 Log.DebugFormat("[Navali] Debug SealPropheciesTask: We are in Town or Hideout, we have {0} coins and need {1} to trigger seeking Prophecies.", CommunityLib.Data.CachedItemsInStash.Where(d => d.FullName.Equals("Silver Coin")).Sum(s => s.StackCount), Int32.Parse(Settings.NumCoinsMin));
             }
@@ -53,7 +53,7 @@ namespace Navali
 
 
                 var propheciesCount = LokiPoe.Me.Prophecies.Count;
-                if (Settings.debugmode)
+                if (Settings.DebugMode)
                 {
                     Log.ErrorFormat("[Navali] Debug SealPropheciesTask: We have {0} Prophecies", propheciesCount);
                 }

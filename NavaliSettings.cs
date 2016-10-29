@@ -25,7 +25,7 @@ namespace Navali
 
         private string _numcoinsmin;
 
-        private bool _DebugMode;
+        private bool _debugmode;
 
         private bool _m1;
         private bool _m2;
@@ -246,14 +246,14 @@ namespace Navali
         private bool _x7;
 
         [DefaultValue(false)]
-        public bool debugmode
+        public bool DebugMode
         {
-            get { return _DebugMode; }
+            get { return _debugmode; }
             set
             {
-                if (value == _DebugMode) return;
-                _DebugMode = value;
-                NotifyPropertyChanged(() => debugmode);
+                if (value == _debugmode) return;
+                _debugmode = value;
+                NotifyPropertyChanged(() => DebugMode);
             }
         }
 
